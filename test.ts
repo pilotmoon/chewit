@@ -1,23 +1,25 @@
-import { encodings, randomIdentifier } from "./index";
+import { alphabets as a, baseConvert, baseEncode, randomString } from "./index";
 console.log(
-  randomIdentifier(),
+  baseConvert([1, 0, 0], 10, 16),
 );
 console.log(
-  randomIdentifier({ prefix: "apikey_", entropyBytes: 24 }),
+  baseEncode([0xff, 0xff], a.base10),
 );
 console.log(
-  randomIdentifier({
-    prefix: "1",
-    entropyBytes: 4,
-    encoding: encodings.flickrBase58,
-  }),
+  randomString(),
 );
 console.log(
-  randomIdentifier({ entropyBytes: 4, encoding: encodings.crockfordBase32 }),
+  randomString({ length: 32 }),
 );
 console.log(
-  randomIdentifier({ entropyBytes: 4, encoding: encodings.hexadecimal }),
+  randomString({ length: 5, alphabet: a.base58Flickr }),
 );
 console.log(
-  randomIdentifier({ entropyBytes: 3, encoding: encodings.decimal, trim: 2 }),
+  randomString({ length: 6, alphabet: a.base32Crockford }),
+);
+console.log(
+  randomString({ length: 6, alphabet: a.base16 }),
+);
+console.log(
+  randomString({ length: 3, alphabet: a.base10 }),
 );
