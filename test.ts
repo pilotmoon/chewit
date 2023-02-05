@@ -10,8 +10,12 @@ test("baseEncode", (t) => {
   t.is(baseEncode([0xff, 0xff], a.base10), "65535");
   t.is(baseEncode([65, 65, 65], a.base58Satoshi), "NvGY");
   t.is(baseEncode([65, 65, 65], a.base58Flickr), "nVgx");
-  t.is(baseEncode([65, 65, 65], a.base58Flickr, { trim: false }), "1nVgx");
   t.is(baseEncode([65, 65, 65], a.base32Crockford), "42GA1");
+});
+
+test("baseEncode trimmed", (t) => {
+  t.is(baseEncode([65, 65, 65], a.base58Flickr, { trim: false }), "1nVgx");
+  t.is(baseEncode([65, 65, 65], a.base32Crockford, { trim: false }), "42GA1");
 });
 
 test("randomString with no arguments", (t) => {

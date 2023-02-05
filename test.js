@@ -26,13 +26,21 @@ const ava_1 = require("ava");
     "nVgx",
   );
   t.is(
+    (0, index_1.baseEncode)([65, 65, 65], index_1.alphabets.base32Crockford),
+    "42GA1",
+  );
+});
+(0, ava_1.default)("baseEncode trimmed", (t) => {
+  t.is(
     (0, index_1.baseEncode)([65, 65, 65], index_1.alphabets.base58Flickr, {
       trim: false,
     }),
     "1nVgx",
   );
   t.is(
-    (0, index_1.baseEncode)([65, 65, 65], index_1.alphabets.base32Crockford),
+    (0, index_1.baseEncode)([65, 65, 65], index_1.alphabets.base32Crockford, {
+      trim: false,
+    }),
     "42GA1",
   );
 });
