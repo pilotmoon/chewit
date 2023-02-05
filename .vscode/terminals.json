@@ -1,0 +1,20 @@
+{
+  "autorun": false,
+  "terminals": [
+    {
+      "name": "tsc",
+      "description": "typescript watcher",
+      "command": "npx tsc --watch"
+    },
+    {
+      "name": "fmt",
+      "description": "formatter",
+      "command": "deno fmt --watch"
+    },
+    {
+      "name": "Terminal",
+      "execute": false,
+      "focus": true
+    }
+  ]
+}

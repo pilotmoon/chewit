@@ -1,0 +1,26 @@
+{
+  "name": "chewit",
+  "version": "0.0.0",
+  "description": "Stripe-inspired random opaque ID generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pilotmoon/chewit.git"
+  },
+  "author": "Nick Moore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pilotmoon/chewit/issues"
+  },
+  "homepage": "https://github.com/pilotmoon/chewit#readme",
+  "devDependencies": {
+    "@types/node": "18.11.19",
+    "typescript": "4.9.5"
+  },
+  "dependencies": {
+    "base-convert-int-array": "1.0.1"
+  }
+}
