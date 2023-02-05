@@ -17,6 +17,7 @@ const ava_1 = require("ava");
     (0, index_1.baseEncode)([0xff, 0xff], index_1.alphabets.base10),
     "65535",
   );
+  t.is((0, index_1.baseEncode)([0x0f, 0xff], index_1.alphabets.base10), "4095");
   t.is(
     (0, index_1.baseEncode)([65, 65, 65], index_1.alphabets.base58Satoshi),
     "NvGY",
@@ -31,6 +32,12 @@ const ava_1 = require("ava");
   );
 });
 (0, ava_1.default)("baseEncode trimmed", (t) => {
+  t.is(
+    (0, index_1.baseEncode)([0x0f, 0xff], index_1.alphabets.base10, {
+      trim: false,
+    }),
+    "04095",
+  );
   t.is(
     (0, index_1.baseEncode)([65, 65, 65], index_1.alphabets.base58Flickr, {
       trim: false,
