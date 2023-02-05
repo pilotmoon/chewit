@@ -1,13 +1,17 @@
 import { alphabets as a, baseConvert, baseEncode, randomString } from "./index";
-
 import test from "ava";
 
 test("baseConvert", (t) => {
   t.deepEqual(baseConvert([1, 0, 0], 10, 16), [0, 6, 4]);
+  t.deepEqual(baseConvert([65, 65, 65], 256, 58), [0, 21, 53, 15, 31]);
 });
 
 test("baseEncode", (t) => {
   t.is(baseEncode([0xff, 0xff], a.base10), "65535");
+  t.is(baseEncode([65, 65, 65], a.base58Satoshi), "NvGY");
+  t.is(baseEncode([65, 65, 65], a.base58Flickr), "nVgx");
+  t.is(baseEncode([65, 65, 65], a.base58Flickr, { trim: false }), "1nVgx");
+  t.is(baseEncode([65, 65, 65], a.base32Crockford), "42GA1");
 });
 
 test("randomString with no arguments", (t) => {

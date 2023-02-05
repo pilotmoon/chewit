@@ -4,11 +4,36 @@ const index_1 = require("./index");
 const ava_1 = require("ava");
 (0, ava_1.default)("baseConvert", (t) => {
   t.deepEqual((0, index_1.baseConvert)([1, 0, 0], 10, 16), [0, 6, 4]);
+  t.deepEqual((0, index_1.baseConvert)([65, 65, 65], 256, 58), [
+    0,
+    21,
+    53,
+    15,
+    31,
+  ]);
 });
 (0, ava_1.default)("baseEncode", (t) => {
   t.is(
     (0, index_1.baseEncode)([0xff, 0xff], index_1.alphabets.base10),
     "65535",
+  );
+  t.is(
+    (0, index_1.baseEncode)([65, 65, 65], index_1.alphabets.base58Satoshi),
+    "NvGY",
+  );
+  t.is(
+    (0, index_1.baseEncode)([65, 65, 65], index_1.alphabets.base58Flickr),
+    "nVgx",
+  );
+  t.is(
+    (0, index_1.baseEncode)([65, 65, 65], index_1.alphabets.base58Flickr, {
+      trim: false,
+    }),
+    "1nVgx",
+  );
+  t.is(
+    (0, index_1.baseEncode)([65, 65, 65], index_1.alphabets.base32Crockford),
+    "42GA1",
   );
 });
 (0, ava_1.default)("randomString with no arguments", (t) => {

@@ -11,9 +11,11 @@ function randomString(
   // number of random bytes needed meet the required output length
   const n = Math.ceil(length * Math.log2(alphabet.length) / Math.log2(256));
   // encode random bytes in the output alphabet
-  const encoded = (0, baseEncode_1.baseEncode)([
-    ...(0, node_crypto_1.randomBytes)(n),
-  ], alphabet);
+  const encoded = (0, baseEncode_1.baseEncode)(
+    [...(0, node_crypto_1.randomBytes)(n)],
+    alphabet,
+    { trim: false },
+  );
   // trim characters off the front to meet required length
   return encoded.slice(encoded.length - length);
 }
