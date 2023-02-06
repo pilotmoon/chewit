@@ -1,7 +1,7 @@
 {
   "name": "@pilotmoon/chewit",
   "version": "0.1.0",
-  "description": "Stripe-inspired random opaque ID generator",
+  "description": "Functions for base conversion and random string generation",
   "main": "index.js",
   "scripts": {
     "test": "ava"
