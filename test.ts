@@ -1,6 +1,5 @@
 import { alphabets as a, baseConvert, baseEncode, randomString } from "./index";
 import test from "ava";
-import { takeCoverage } from "node:v8";
 
 test("baseConvert", (t) => {
   t.deepEqual(baseConvert([1, 0, 0], 10, 16), [0, 6, 4]);
@@ -55,4 +54,17 @@ test("randomString base10", (t) => {
   const r0 = randomString({ length: 3, alphabet: a.base10 });
   t.log(r0);
   t.assert(r0.length == 3);
+});
+
+test("randomString custom rng", (t) => {
+  function rng(size: number) { // non-random
+    const result = new Array(size);
+    for (let i = 0; i <= size; i++) {
+      result[i] = i;
+    }
+    return result;
+  }
+  const r0 = randomString({ length: 6, alphabet: a.base10, rng: rng });
+  t.log(r0);
+  t.is(r0, "066051");
 });

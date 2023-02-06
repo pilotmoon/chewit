@@ -93,3 +93,19 @@ const ava_1 = require("ava");
   t.log(r0);
   t.assert(r0.length == 3);
 });
+(0, ava_1.default)("randomString custom rng", (t) => {
+  function rng(size) {
+    const result = new Array(size);
+    for (let i = 0; i <= size; i++) {
+      result[i] = i;
+    }
+    return result;
+  }
+  const r0 = (0, index_1.randomString)({
+    length: 6,
+    alphabet: index_1.alphabets.base10,
+    rng: rng,
+  });
+  t.log(r0);
+  t.is(r0, "066051");
+});
