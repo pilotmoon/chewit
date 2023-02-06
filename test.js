@@ -53,10 +53,12 @@ const ava_1 = require("ava");
 });
 (0, ava_1.default)("randomString with no arguments", (t) => {
   const r0 = (0, index_1.randomString)();
+  t.log(r0);
   t.assert(r0.length == 24);
 });
 (0, ava_1.default)("randomString with length", (t) => {
   const r0 = (0, index_1.randomString)({ length: 32 });
+  t.log(r0);
   t.assert(r0.length == 32);
 });
 (0, ava_1.default)("randomString base58Flickr", (t) => {
@@ -64,6 +66,7 @@ const ava_1 = require("ava");
     length: 5,
     alphabet: index_1.alphabets.base58Flickr,
   });
+  t.log(r0);
   t.assert(r0.length == 5);
 });
 (0, ava_1.default)("randomString base32Crockford", (t) => {
@@ -71,6 +74,7 @@ const ava_1 = require("ava");
     length: 5,
     alphabet: index_1.alphabets.base32Crockford,
   });
+  t.log(r0);
   t.assert(r0.length == 5);
 });
 (0, ava_1.default)("randomString base16", (t) => {
@@ -78,6 +82,7 @@ const ava_1 = require("ava");
     length: 6,
     alphabet: index_1.alphabets.base16,
   });
+  t.log(r0);
   t.assert(r0.length == 6);
 });
 (0, ava_1.default)("randomString base10", (t) => {
@@ -85,5 +90,6 @@ const ava_1 = require("ava");
     length: 3,
     alphabet: index_1.alphabets.base10,
   });
+  t.log(r0);
   t.assert(r0.length == 3);
 });
