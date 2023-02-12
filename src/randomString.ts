@@ -3,13 +3,13 @@ import { alphabets } from "./alphabets";
 import { baseEncode } from "./baseEncode";
 
 // default RNG, for node
-function nodeRng(size: number) {
+export function defaultRng(size: number) {
   return [...randomBytes(size)];
 }
 
 // generate a random string of the given length using the given alphabet
 export function randomString(
-  { length = 24, alphabet = alphabets.base62, rng = nodeRng }: {
+  { length = 24, alphabet = alphabets.base62, rng = defaultRng }: {
     length?: number;
     alphabet?: string;
     rng?: (size: number) => Array<number>;
