@@ -1,4 +1,10 @@
-import { alphabets as a, baseConvert, baseEncode, randomString } from "./index";
+import {
+  alphabets as a,
+  baseConvert,
+  baseDecode,
+  baseEncode,
+  randomString,
+} from "./index";
 import test from "ava";
 
 test("baseConvert", (t) => {
@@ -18,6 +24,14 @@ test("baseEncode trimmed", (t) => {
   t.is(baseEncode([0x0f, 0xff], a.base10, { trim: false }), "04095");
   t.is(baseEncode([65, 65, 65], a.base58Flickr, { trim: false }), "1nVgx");
   t.is(baseEncode([65, 65, 65], a.base32Crockford, { trim: false }), "42GA1");
+});
+
+test("baseDecode", (t) => {
+  t.deepEqual(baseDecode("65535", a.base10), [0xff, 0xff]);
+  t.deepEqual(baseDecode("4095", a.base10), [0x0f, 0xff]);
+  t.deepEqual(baseDecode("NvGY", a.base58Satoshi), [65, 65, 65]);
+  t.deepEqual(baseDecode("nVgx", a.base58Flickr), [65, 65, 65]);
+  t.deepEqual(baseDecode("42GA1", a.base32Crockford), [65, 65, 65]);
 });
 
 test("randomString with no arguments", (t) => {

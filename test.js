@@ -51,6 +51,29 @@ const ava_1 = require("ava");
     "42GA1",
   );
 });
+(0, ava_1.default)("baseDecode", (t) => {
+  t.deepEqual((0, index_1.baseDecode)("65535", index_1.alphabets.base10), [
+    0xff,
+    0xff,
+  ]);
+  t.deepEqual((0, index_1.baseDecode)("4095", index_1.alphabets.base10), [
+    0x0f,
+    0xff,
+  ]);
+  t.deepEqual(
+    (0, index_1.baseDecode)("NvGY", index_1.alphabets.base58Satoshi),
+    [65, 65, 65],
+  );
+  t.deepEqual((0, index_1.baseDecode)("nVgx", index_1.alphabets.base58Flickr), [
+    65,
+    65,
+    65,
+  ]);
+  t.deepEqual(
+    (0, index_1.baseDecode)("42GA1", index_1.alphabets.base32Crockford),
+    [65, 65, 65],
+  );
+});
 (0, ava_1.default)("randomString with no arguments", (t) => {
   const r0 = (0, index_1.randomString)();
   t.log(r0);

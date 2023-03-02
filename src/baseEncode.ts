@@ -13,3 +13,18 @@ export function baseEncode(
     .map((value) => alphabet[value])
     .join("");
 }
+
+// decode a string in given alphabet to base256 array.
+// when trim=true, remove leading zero values.
+export function baseDecode(
+  string: string,
+  alphabet: string,
+  { trim = true }: { trim?: boolean } = {},
+) {
+  const values = string
+    .split("")
+    .map((char) => alphabet.indexOf(char));
+  const converted = baseConvert(values, alphabet.length, 256);
+  if (trim) while (converted[0] === 0) converted.shift();
+  return converted;
+}
