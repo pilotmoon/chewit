@@ -1,6 +1,6 @@
 {
   "name": "@pilotmoon/chewit",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Functions for base conversion and random string generation",
   "main": "index.js",
   "scripts": {
